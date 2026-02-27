@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIXI Shapes</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
+      #app {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      #stats {
+        display: flex;
+        background: #f0f0f0;
+        padding: 5px;
+        border-bottom: 1px solid #ccc;
+      }
+      .stat-item {
+        margin-right: 20px;
+        padding: 5px;
+        border: 1px solid #888;
+        background: white;
+      }
+      #canvas-container {
+        flex: 1;
+        background: #eee;
+        position: relative;
+        overflow: hidden;
+      }
+      #controls {
+        display: flex;
+        align-items: center;
+        background: #f0f0f0;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+      }
+      .control-group {
+        display: flex;
+        align-items: center;
+        margin-right: 30px;
+      }
+      .btn-container {
+        display: flex;
+        border: 2px solid #333;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-right: 10px;
+      }
+      button {
+        padding: 5px 15px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        background: white;
+      }
+      button:hover {
+        background: #ddd;
+      }
+      button:active {
+        background: #bbb;
+      }
+      .label-box {
+        padding: 5px 10px;
+        border: 1px solid #888;
+        background: white;
+      }
+    </style>
+    <script type="module" crossorigin src="/pixi-shapes/assets/index-CBfBhWVw.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div id="stats">
+        <div class="stat-item">
+          Number of shapes: <span id="num-shapes">0</span>
+        </div>
+        <div class="stat-item">
+          Surface area (px^2): <span id="surface-area">0</span>
+        </div>
+      </div>
+      <div id="canvas-container"></div>
+      <div id="controls">
+        <div class="control-group">
+          <div class="btn-container">
+            <button id="shapes-per-sec-minus">-</button>
+            <button id="shapes-per-sec-plus">+</button>
+          </div>
+          <div class="label-box">
+            Shapes per sec: <span id="shapes-per-sec-val">1</span>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="btn-container">
+            <button id="gravity-minus">-</button>
+            <button id="gravity-plus">+</button>
+          </div>
+          <div class="label-box">
+            Gravity: <span id="gravity-val">2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
