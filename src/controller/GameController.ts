@@ -1,4 +1,4 @@
-import { GameModel, ShapeType } from '../model/GameModel';
+import { GameModel } from '../model/GameModel';
 import { PixiView } from '../view/PixiView';
 import { HtmlView } from '../view/HtmlView';
 import { ShapeFactory } from '../utils/ShapeFactory';
@@ -86,8 +86,8 @@ export class GameController {
     private createShape(x: number, y: number) {
         const shapeData = ShapeFactory.createRandomShape(x, y);
         this.model.addShape(shapeData);
-        this.pixiView.addShape(shapeData, (id, type) => {
-            this.onShapeClick(id, type);
+        this.pixiView.addShape(shapeData, (id) => {
+            this.onShapeClick(id);
         });
     }
 
@@ -96,22 +96,7 @@ export class GameController {
         this.pixiView.removeShape(id);
     }
 
-    private onShapeClick(id: string, type: ShapeType) {
-        // Requirement: "If you click a shape, it will disappear."
-        // Image requirement: "Click on a shape to change the color of all shapes of the same type"
-        // I will implement both: Disappear as per text, but maybe user wants the color change too?
-        // Let's stick to text: "disappear".
+    private onShapeClick(id: string) {
         this.removeShape(id);
-        
-        // If I were to implement "change color of all shapes of the same type":
-        /*
-        const newColor = Math.floor(Math.random() * 0xFFFFFF);
-        this.model.shapes.forEach(s => {
-            if (s.type === type) {
-                s.color = newColor;
-                this.pixiView.updateShapeColor(s.id, s);
-            }
-        });
-        */
     }
 }

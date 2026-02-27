@@ -4,7 +4,7 @@ import { ShapeData, ShapeType } from '../model/GameModel';
 export class PixiView {
     public app: PIXI.Application;
     private shapes: Map<string, PIXI.Graphics> = new Map();
-    private interactionLayer: PIXI.Container;
+    private readonly interactionLayer: PIXI.Container;
 
     constructor() {
         this.app = new PIXI.Application();
@@ -47,14 +47,6 @@ export class PixiView {
         const graphics = this.shapes.get(id);
         if (graphics) {
             graphics.y = y;
-        }
-    }
-
-    public updateShapeColor(id: string, data: ShapeData) {
-        const graphics = this.shapes.get(id);
-        if (graphics) {
-            graphics.clear();
-            this.drawShape(graphics, data);
         }
     }
 
